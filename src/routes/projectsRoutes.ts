@@ -1,7 +1,9 @@
 import { Router } from 'express';
 import * as projectController from '../controllers/projectsController';
+import { authenticate } from '../middleware/authMiddleware';
 
 const router = Router();
+router.use(authenticate);
 
 router.post('/', projectController.createProject);
 router.get('/', projectController.getAllProjects);

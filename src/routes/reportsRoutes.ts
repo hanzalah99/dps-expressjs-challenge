@@ -1,7 +1,9 @@
 import { Router } from 'express';
 import * as reportController from '../controllers/reportsController';
+import { authenticate } from '../middleware/authMiddleware';
 
 const router = Router();
+router.use(authenticate);
 
 router.post('/', reportController.createReport);
 router.get('/', reportController.getAllReports);
