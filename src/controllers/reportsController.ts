@@ -57,6 +57,24 @@ export const getReportByProjectId = async (req: Request, res: Response) => {
     }
 };
 
+export const getReportsWithRepeatedWord  = async (req: Request, res: Response) => {
+    try {
+        const { word } = req.params;
+        const report = reportService.getReportsWithRepeatedWord(word);
+
+        if (report.length === 0) {
+            return res.status(404).json({ message: `No report found with at least 3 occurances of ${req.params.word}` });
+        }
+
+        res.status(200).json(report);
+    } catch (error) {
+        console.error(`Failed to get report with word ${req.params.word}:`, error);
+        res.status(500).json({
+            error: `Failed to get reoprt with word ${req.params.word}`
+        });
+    }
+};
+
 export const updateReport = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;

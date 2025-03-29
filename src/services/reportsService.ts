@@ -1,6 +1,9 @@
 import db from '../services/db.service';
 import { Report } from '../models/reportsModel';
+import { countWordOccurrences } from "../utils/textUtils";
 import { v4 as uuidv4 } from 'uuid';
+
+const MIN_OCCURRENCES = 3; // Changeable threshold
 
 export const createReport = (text: string, projectId: string) => {
     const id = uuidv4();
@@ -24,6 +27,11 @@ export const getReportById = (id: string): Report[] => {
 export const getReportByProjectId = (projectId: string): Report[] => {
     const result = db.query('SELECT * FROM reports WHERE projectid = :projectId', { projectId }) as Report[];
     return result;
+};
+
+export const getReportsWithRepeatedWord = (word: string) : Report[] => {
+    const result = db.query('SELECT * FROM reports') as Report[];
+    return result.filter((report: any) => countWordOccurrences(report.text, word) >= MIN_OCCURRENCES);
 };
 
 export const updateReport = (id: string, text: string, projectid: string) => {
