@@ -54,9 +54,7 @@ export const updateProject = async (req: Request, res: Response) => {
         res.status(200).json({ id, name, description });
     } catch (error) {
         console.error(`Failed to update project with ID ${req.params.id}:`, error);
-        res.status(500).json({
-            error: `Failed to update project with ID ${req.params.id}`
-        });
+        res.status(500).json({error: `Failed to update project with ID ${req.params.id}`});
     }
 };
 
@@ -72,8 +70,6 @@ export const deleteProject = async (req: Request, res: Response) => {
         res.status(204).send();
     } catch (error) {
         console.error(`Failed to delete project with ID ${req.params.id}:`, error);
-        res.status(500).json({
-            error: `Failed to delete project with ID ${req.params.id}`
-        });
+        res.status(500).json({error: `Failed to delete project with ID ${req.params.id}`});
     }
 };
