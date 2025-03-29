@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 export const createReport = (text: string, projectId: string) => {
     const id = uuidv4();
     const result = db.run(
-        'INSERT INTO reports (id, text, projectid) VALUES (@id, @text, @projectid)',
+        'INSERT INTO reports (id, text, projectid) VALUES (@id, @text, @projectId)',
         { id, text, projectId }
     );
     return result;

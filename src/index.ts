@@ -1,6 +1,7 @@
 import express, { Express } from 'express';
 import dotenv from 'dotenv';
 import projectsRoutes from './routes/projectsRoutes'
+import reportsRoutes from './routes/reportsRoutes'
 
 dotenv.config();
 
@@ -13,8 +14,8 @@ app.get('/', (req,res)  => {
 	res.json({ message: 'Backend project' });
 });
 
-app.use('/projects', projectsRoutes)
-
+app.use('/projects', projectsRoutes);
+app.use('/reports', reportsRoutes);
 
 
 app.listen(port, () => {
