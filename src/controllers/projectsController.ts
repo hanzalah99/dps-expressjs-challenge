@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import * as projectService from '../services/projectsService';
 
+// Creates a new project after validating input
+
 export const createProject = async (req: Request, res: Response) => {
     try {
         const { name, description } = req.body;
@@ -15,6 +17,8 @@ export const createProject = async (req: Request, res: Response) => {
     }
 };
 
+// Get all projects
+
 export const getAllProjects = async (req: Request, res: Response) => {
     try {
         const projects = projectService.getAllProjects();
@@ -24,6 +28,8 @@ export const getAllProjects = async (req: Request, res: Response) => {
         res.status(500).json({ error: 'Failed to get all projects' });
     }
 };
+
+// Get project by Id
 
 export const getProjectById = async (req: Request, res: Response) => {
     try {
@@ -41,6 +47,8 @@ export const getProjectById = async (req: Request, res: Response) => {
     }
 };
 
+// Update project
+
 export const updateProject = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
@@ -57,6 +65,8 @@ export const updateProject = async (req: Request, res: Response) => {
         res.status(500).json({error: `Failed to update project with ID ${req.params.id}`});
     }
 };
+
+// Delete Project
 
 export const deleteProject = async (req: Request, res: Response) => {
     try {

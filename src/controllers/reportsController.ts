@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import * as reportService from '../services/reportsService';
 
+// Create new Report after validating inputs
+
 export const createReport = async (req: Request, res: Response) => {
     try {
         const { text, projectId } = req.body;
@@ -15,6 +17,8 @@ export const createReport = async (req: Request, res: Response) => {
     }
 };
 
+// Get all Reports
+
 export const getAllReports = async (req: Request, res: Response) => {
     try {
         const reports = reportService.getAllReports();
@@ -24,6 +28,8 @@ export const getAllReports = async (req: Request, res: Response) => {
         res.status(500).json({ error: 'Failed to get all reports' });
     }
 };
+
+// Get Report by ID
 
 export const getReportById = async (req: Request, res: Response) => {
     try {
@@ -41,6 +47,7 @@ export const getReportById = async (req: Request, res: Response) => {
     }
 };
 
+// Get Report by project ID
 export const getReportByProjectId = async (req: Request, res: Response) => {
     try {
         const { projectId } = req.params;
@@ -56,6 +63,8 @@ export const getReportByProjectId = async (req: Request, res: Response) => {
         res.status(500).json({error: `Failed to get reoprt with ID ${req.params.id}`});
     }
 };
+
+// Get Reports with Repeated word. Special API endpoint
 
 export const getReportsWithRepeatedWord  = async (req: Request, res: Response) => {
     try {
@@ -75,6 +84,8 @@ export const getReportsWithRepeatedWord  = async (req: Request, res: Response) =
     }
 };
 
+// Update Report
+
 export const updateReport = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
@@ -92,6 +103,8 @@ export const updateReport = async (req: Request, res: Response) => {
     }
 };
 
+// Delete Report
+
 export const deleteReport = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
@@ -107,9 +120,3 @@ export const deleteReport = async (req: Request, res: Response) => {
         res.status(500).json({error: `Failed to delete report with ID ${req.params.id}`});
     }
 };
-
-
-
-
-
-

@@ -11,13 +11,19 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Main page 
+
 app.get('/', (req,res)  => {
 	res.json({ message: 'Backend project' });
 });
 
+// Routes
+
 app.use('/projects', projectsRoutes);
 app.use('/reports', reportsRoutes);
 app.use('*', invalidRoutes)
+
+// Error handling 
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
     console.error(err.stack);

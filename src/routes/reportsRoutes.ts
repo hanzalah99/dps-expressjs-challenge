@@ -5,6 +5,8 @@ import { authenticate } from '../middleware/authMiddleware';
 const router = Router();
 router.use(authenticate);
 
+// Reports Routes
+
 router.post('/', reportController.createReport);
 router.get('/', reportController.getAllReports);
 router.get('/:id', reportController.getReportById);

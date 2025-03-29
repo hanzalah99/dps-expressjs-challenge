@@ -1,3 +1,5 @@
+// Report Model
+
 export interface Report {
 	id: string;
 	text: string;

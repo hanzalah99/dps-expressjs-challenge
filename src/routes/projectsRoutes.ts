@@ -5,6 +5,8 @@ import { authenticate } from '../middleware/authMiddleware';
 const router = Router();
 router.use(authenticate);
 
+//Projects Routes
+
 router.post('/', projectController.createProject);
 router.get('/', projectController.getAllProjects);
 router.get('/:id', projectController.getProjectById);

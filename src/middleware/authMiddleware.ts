@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 
+// Hardcoded authentication token
+
 const SECRET_TOKEN = 'Password123'; 
 
 export const authenticate = (req: Request, res: Response, next: NextFunction) => {
