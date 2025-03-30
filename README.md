@@ -1,5 +1,38 @@
 # DPS Backend Coding Challenge
 
+## API Endpoints
+The following API endpoints are implemented:
+
+## Projects
+
+POST /projects - Create a new project 
+
+GET /projects - Retrieve all projects 
+
+GET /projects/:id - Retrieve a project by ID 
+
+PUT /projects/:id - Update a project 
+
+DELETE /projects/:id - Delete a project
+
+## Reports
+
+POST /reports - Create a new report linked to a project 
+
+GET /reports - Retrieve all reports 
+
+GET /reports/:id - Retrieve a report by ID 
+
+GET /reports/project/:projectId - Retrieve a report by Project ID 
+
+PUT /reports/:id - Update a report 
+
+DELETE /reports/:id - Delete a report
+
+## Special Endpoint
+
+GET /reports/special/:word - Retrieve all reports where the same word appears at least three times
+
 ## Overview
 
 This repository contains a very basic web application based on Typescript and Express.js. Main application file is `index.ts`. Node and npm are required.
